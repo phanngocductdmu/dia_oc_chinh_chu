@@ -1,0 +1,49 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace = "com.example.diaocchinhchu"
+    compileSdk = 35
+    ndkVersion = flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId = "com.example.diaocchinhchu"
+        minSdk = 21
+        targetSdk = 33
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+}
+
+flutter {
+    source = "../.."
+}
+
+dependencies {
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'com.google.mlkit:text-recognition:16.0.0-beta5'
+}
